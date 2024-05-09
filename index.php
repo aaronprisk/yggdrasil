@@ -1,4 +1,6 @@
 <?php
+$event_count=3;
+$loco_count=5;
 include 'includes/functions.php';
 echo '
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -6,6 +8,8 @@ echo '
   <div class="l-docs__header">
     <header id="navigation" class="p-navigation is-dark">
     <link rel="stylesheet" href="https://assets.ubuntu.com/v1/vanilla-framework-version-4.5.1.min.css" />
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css" />
+    <link rel="stylesheet" href="spice.css" />
       <div class="l-docs__subgrid">
         <div class="l-docs__sidebar">
           <div class="p-navigation__banner">
@@ -34,7 +38,7 @@ echo '
                 <li class="p-navigation__item">
                   <a class="p-navigation__link" href="pathways.php">Pathways</a>
                 </li>
-                <li class="p-navigation__item is-selected">
+                <li class="p-navigation__item">
                   <a class="p-navigation__link" href="uwn.php">Ubuntu Weekly News</a>
                 </li>
               </ul>
@@ -43,64 +47,55 @@ echo '
         </div>
       </div>
     </header>
-  </div>
-
-  <aside class="l-docs__sidebar">
-    <nav class="p-side-navigation--raw-html is-sticky" id="drawer" aria-label="Table of contents">
-      <div class="u-hide--large p-strip is-shallow">
-        <div class="u-fixed-width">
-          <a href="#drawer" class="p-side-navigation__toggle js-drawer-toggle" aria-controls="drawer">
-            Toggle side navigation
-          </a>
-        </div>
-      </div>
-
-      <div class="p-side-navigation__overlay js-drawer-toggle" aria-controls="drawer"></div>
-
-      <div class="p-side-navigation__drawer">
-        <div class="p-side-navigation__drawer-header">
-          <a href="#" class="p-side-navigation__toggle--in-drawer js-drawer-toggle" aria-controls="drawer">
-            Toggle side navigation
-          </a>
-        </div>
-        <h3>UWN Issues</h3>
-        <ul>';
-
-showUWNindex();
-
-echo '
-      </ul>
-        <ul>
-          <li>
-            <a href="#"><strong>Contribute</strong></a>
-          </li>
-          <li>
-            <a href="#">Join the newsteam</a>
-          </li>
-          <li>
-            <a href="#">Donate</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </aside>
-
-  <div class="l-docs__title" id="main-content">
-    <div class="p-section--shallow">
-      <div class="row">
-        <div class="col-12">
-          <h1></h1>
-        </div>
-      </div>
-    </div>
+   <body class="is-paper">
   </div>
 
  <main class="l-docs__main">
       <div class="row">
-        <div class="col-12">';
+        <div class="col-12">
 
-showUWNcurrent();
+<section class="p-strip">
+  <div class="row u-vertically-center">
+    <div class="col-4">
+      <h2>The Ubuntu Community</h2>
+      <p>We are an international community with a mission to bring free software to the widest possible audience. Our name “Ubuntu” means “humanity towards others”. Join us and share in our mission to bring free software to the entire world!</p>
+      <a class="p-button--brand" href="#community-events">Get Started</a>
+    </div>
+    <div class="col-8 u-hide--small u-align--center">
+      <img src="img/ubu-banner.png" alt="">
+    </div>
+  </div>
+</section>
+
+<section id="community-events"
+<div class="p-heading-icon">
+  <div class="p-heading-icon__header">
+    <img class="p-heading-icon__img" src="img/calendar-icon.png" alt="">
+    <h3 class="p-heading-icon__title">Community Events</h3>
+  </div>
+  <p>Meet and greet with fellow Ubuntu enthusiasts from around the world.</p>
+</div>
+</section>
+
+<div class="row">';
+
+// Display 3 newest events
+showEvents($event_count);
+
+echo '
+<hr>
+<div class="p-heading-icon">
+  <div class="p-heading-icon__header">
+    <img class="p-heading-icon__img" src="https://assets.ubuntu.com/v1/117ecfea-pictogram-community-193x174.png" alt="">
+    <h3 class="p-heading-icon__title">Local Communities</h3>
+  </div>
+  <p>Community is all about engaging with the people around you. There are Ubuntu events happening all the time all over the world.</p>
+</div>
+<div class="row">';
+
+// Display 3 newest LoCos
+showLoCos($loco_count);
 
 // Closing HTML
-echo "</div></main></div>";
+echo "</div></main></body></div>";
 ?>

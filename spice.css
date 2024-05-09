@@ -1,0 +1,12 @@
+.card-frame {
+    height: 175px;
+    object-fit: cover;
+}
+
+.p-modal {
+    display: none;
+}
+
+.lightbox .meta {
+    display: none;
+}
